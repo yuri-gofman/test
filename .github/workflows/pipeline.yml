@@ -1,0 +1,19 @@
+name: Display Environment Variables
+
+on:
+  push:
+    branches:
+      - main  # Trigger on code push to the 'main' branch
+  pull_request:
+    branches:
+      - main  # Trigger on pull requests to the 'main' branch
+
+jobs:
+  show-env-vars:
+    runs-on: windows-latest  # Use a Windows-based runner
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3  # Pull the code from the repository
+
+      - name: Show Environment Variables
+        run: cmd /C set
